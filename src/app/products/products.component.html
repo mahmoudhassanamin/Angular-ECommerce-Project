@@ -1,3 +1,58 @@
-<h1>{{store_name}}</h1>
+<h1>{{store_name|uppercase}}</h1>
 <img [src]="store_Logo">
-<h3>{{"We offer an explicit discount of:"+ discount}}</h3>
+<h3 *ngIf="discount != 'No Discount' ">We offer an explicit discount of: {{discount|percent }}</h3>
+<form action="">
+<select name="categories" >
+    <option [value]="category.Name" *ngFor="let category of CategoryList">{{category?.Name}}</option>
+</select>
+<input type="submit" value="Ok">
+</form>
+<!-- <table style="width:400px" *ngIf="!IsPurshased; else PurshasedBlock" #productsBlock>
+    <thead>
+        <tr>
+          <th>Cover Image</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of ProductList">
+            <td><img [src]="product.Img" height="30px" width="auto"></td>
+            <td>{{product?.Name}}</td>
+            <td>{{product?.Price+"L.E"}}</td>
+        </tr>
+    </tbody>
+</table> -->
+<div *ngIf="IsPurshased ; then PurshasedBlock ;  else productsBlock"></div>
+<ng-template #productsBlock>
+<table style="width:400px">
+    <thead>
+        <tr>
+          <th>Cover Image</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of ProductList">
+            <td><img [src]="product.Img" height="30px" width="auto"></td>
+            <td>{{product?.Name}}</td>
+            <td>{{product?.Price+"L.E"}}</td>
+        </tr>
+    </tbody>
+</table>
+</ng-template>
+<!-- <div *ngIf="IsPurshased">
+    {{"Thanks for purchasing from our Store "+ClientName}}
+</div> -->
+<ng-template #PurshasedBlock>
+    <div >
+        {{"Thanks for purchasing from our Store "+ClientName}}
+    </div>
+</ng-template>
+
+
+<input type="text" [(ngModel)]="ClientName">{{ClientName}}
+<button (click)="IsPurshased=true">Buy</button>
+
+{{arr|filter:"amin":"hassan":"dsf"}}

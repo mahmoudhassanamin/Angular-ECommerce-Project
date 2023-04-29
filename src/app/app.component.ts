@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ProductsComponent } from './products/products.component';
 
 @Component({
   selector: 'myfirstapp-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'LabOneProject';
+  productButtonIsavailable:boolean=true;
+  @ViewChild(ProductsComponent) productschild:ProductsComponent;
+ 
+  intializeProductsList(){
+    this.productschild.renderValues()
+    // this.productschild.productsIsInitialized=true;
+    this.productButtonIsavailable=false
+  }
 }

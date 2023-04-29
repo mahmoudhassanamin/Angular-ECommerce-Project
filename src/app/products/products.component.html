@@ -23,6 +23,7 @@
         </tr>
     </tbody>
 </table> -->
+<div *ngIf="!productsIsInitialized">
 <div *ngIf="IsPurshased ; then PurshasedBlock ;  else productsBlock"></div>
 <ng-template #productsBlock>
 <table style="width:400px">
@@ -54,5 +55,5 @@
 
 <input type="text" [(ngModel)]="ClientName">{{ClientName}}
 <button (click)="IsPurshased=true">Buy</button>
-
-{{arr|filter:"amin":"hassan":"dsf"}}
+</div>
+<!-- {{arr|filter:"amin":"hassan":"dsf"}} -->

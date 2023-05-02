@@ -9,11 +9,11 @@ import { ProductsComponent } from './products/products.component';
 export class AppComponent {
   title = 'LabOneProject';
   productButtonIsavailable:boolean=true;
-  @ViewChild(ProductsComponent) productschild:ProductsComponent;
+  // @ViewChild(ProductsComponent) productschild:ProductsComponent;
  
-  intializeProductsList(){
-    this.productschild.renderValues()
-    // this.productschild.productsIsInitialized=true;
-    this.productButtonIsavailable=false
-  }
+  // intializeProductsList(){
+  //   this.productschild.renderValues()
+  //   // this.productschild.productsIsInitialized=true;
+  //   this.productButtonIsavailable=false
+  // }
 }

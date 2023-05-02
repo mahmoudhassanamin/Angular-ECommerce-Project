@@ -1,0 +1,16 @@
+<div *ngIf="errorMessage;then error;else usersBlock"></div>
+<ng-template #usersBlock>
+    <div *ngFor="let user of users" class="card">
+        <h3>name :  {{user.name}}</h3>
+        <p>username:{{user.username}}</p>
+        <p>email:
+        <a href="mailto:{{user.email}}">{{user.email}}</a>
+        </p>
+    </div>
+</ng-template>
+
+<ng-template #error>
+
+    <h3>{{errorMessage}}</h3>
+
+</ng-template>

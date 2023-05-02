@@ -6,5 +6,5 @@ import 'bootstrap';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  imageSrc:string="../assets/images/AngularJS_Banner.jpg"
+  imageNavIconSrc:string="../assets/images/navImg.png"
 }

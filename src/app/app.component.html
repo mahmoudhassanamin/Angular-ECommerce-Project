@@ -1,5 +1,6 @@
 <app-header></app-header>
-<app-products [productButtonIsavailable]="productButtonIsavailable"></app-products>
+<!--<app-products [productButtonIsavailable]="productButtonIsavailable"></app-products> -->
 
-<button (click)="intializeProductsList()" *ngIf="productButtonIsavailable">products</button>
+<router-outlet ></router-outlet>
+
 <app-footer></app-footer>

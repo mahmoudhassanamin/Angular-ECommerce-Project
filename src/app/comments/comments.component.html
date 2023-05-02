@@ -1,0 +1,16 @@
+<div *ngIf="errormessage;then error;else commentBlock"></div>
+<ng-template #commentBlock>
+        <div *ngFor="let comment of comments" class="card">
+            <h3>Post ID :  {{comment.postId}}</h3>
+            <p>Name:{{comment.name}}</p>
+            <p>Email:{{comment.email}}</p>
+            <h4>Body:</h4>
+            <p>{{comment.body}}</p>
+        </div>  
+</ng-template>
+
+<ng-template #error>
+
+    <h3>{{errormessage}}</h3>
+
+</ng-template>

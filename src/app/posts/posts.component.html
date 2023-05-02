@@ -1,0 +1,18 @@
+<p>posts works!</p>
+<div *ngIf="errorMessage;then error;else postsBlock"></div>
+<ng-template #postsBlock>
+        <div *ngFor="let post of posts" class="card">
+            <h3>Post ID :  {{post.id}}</h3>
+            <h4>Title:</h4>
+            <p>{{post.title}}</p>
+            <h4>Body:</h4>
+            <p>{{post.body}}</p>
+            <button (click)="getComments(post.id)">comments</button>
+        </div>  
+</ng-template>
+
+<ng-template #error>
+
+    <h3>{{errorMessage}}</h3>
+
+</ng-template>

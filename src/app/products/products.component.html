@@ -1,12 +1,12 @@
 <h1>{{store_name|uppercase}}</h1>
 <img [src]="store_Logo">
 <h3 *ngIf="discount != 'No Discount' ">We offer an explicit discount of: {{discount|percent }}</h3>
-<form action="">
+
 <select name="categories" >
     <option [value]="category.Name" *ngFor="let category of CategoryList">{{category?.Name}}</option>
 </select>
-<input type="submit" value="Ok">
-</form>
+
+
 <!-- <table style="width:400px" *ngIf="!IsPurshased; else PurshasedBlock" #productsBlock>
     <thead>
         <tr>
@@ -23,7 +23,7 @@
         </tr>
     </tbody>
 </table> -->
-<div *ngIf="!productsIsInitialized">
+<div *ngIf="!productButtonIsavailable">
 <div *ngIf="IsPurshased ; then PurshasedBlock ;  else productsBlock"></div>
 <ng-template #productsBlock>
 <table style="width:400px">
@@ -53,7 +53,10 @@
 </ng-template>
 
 
-<input type="text" [(ngModel)]="ClientName">{{ClientName}}
+ <input type="text" [(ngModel)]="ClientName">{{ClientName}}
 <button (click)="IsPurshased=true">Buy</button>
 </div>
+<button (click)="intializeProductsList()" *ngIf="productButtonIsavailable">products</button> 
+<button (click)="intializeProductsList()" *ngIf="productButtonIsavailable">products with discount</button> 
+<button (click)="intializeProductsList()" *ngIf="productButtonIsavailable">products without discount</button> 
 <!-- {{arr|filter:"amin":"hassan":"dsf"}} -->
